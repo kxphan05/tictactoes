@@ -59,6 +59,8 @@ class TicTacToe():
                 except ValueError:
                     print('Enter a valid number!')
                     continue
+                except IndexError:
+                    print('Enter valid index!')
             
             self.generate_board()
 
@@ -89,6 +91,8 @@ class TicTacToe():
                 except ValueError:
                     print('Enter a valid number!')
                     continue
+                except IndexError:
+                    print('Enter valid index!')
             
             self.generate_board()
 
@@ -98,9 +102,17 @@ class TicTacToe():
             elif self.check_win() == 1:
                 print("DRAW!")
                 return
+            
+def main():
+    try:
+        n = int(input("Board Size: "))
+    except ValueError:
+        print('Enter Valid Board Size')
+    tictactoe = TicTacToe(n)
+    tictactoe.generate_board()
+    tictactoe.init_game()
 
-tictactoe = TicTacToe(3)
-tictactoe.generate_board()
-tictactoe.init_game()
+if __name__ == '__main__':
+    main()
 
 
